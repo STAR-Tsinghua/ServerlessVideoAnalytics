@@ -9,7 +9,7 @@ Detailed instruction on how to set up models on AWS is documented by README unde
 
 The remaining part of the code is for edge server.
 
-> demo picture and demo video are stored under test folder
+> Demo picture and demo video are stored under test folder
 
 ## Setup
 
@@ -49,9 +49,11 @@ So, you should donwload them all.
 
 Put the weight file into `./model/weights` folder.
 
-> the weight file can be found in [ultralytics/yolov5][] under pretrained checkpoints tag.
-> the names of weight files should be `{model}.pt` like `yolov5x.pt`.
-> if not, modify the settings `yolo_models` in `./config/runtime_cfg.json`.
+> The weight file can be found in [ultralytics/yolov5][] under pretrained checkpoints tag.
+
+> The names of weight files should be `{model}.pt` like `yolov5x.pt`.
+
+> If not, modify the settings `yolo_models` in `./config/runtime_cfg.json`.
 
 [ultralytics/yolov5]: https://github.com/ultralytics/yolov5
 
@@ -87,18 +89,18 @@ demo
 If you want to use other videos as input, you should make a similar folder structure.
 
 First, create a folder `your_folder_name` under this folder and move target `your_video.mp4` to the folder.
-Then, create `./your_folder_name` folder and `./your_folder_name/profile`, `./your_folder_name/1080p` and `./your_folder_name/result` folder.
+Then, create `./your_folder_name` folder and `./your_folder_name/profile`, `./your_folder_name/1080p`, `./your_folder_name/result` folder.
 
 ### Extract frames
 
 Edit input_video option in `extract_frame.sh` to the absolute path of `./your_folder_name/video.mp4` and output_image_path to `./your_folder_name/1080p`.
-Then, run the script with `bash extract_frame.sh`, extracted frames will be saved in `./your_folder_name/1080p`
+Then, run the script with `bash extract_frame.sh`, and extracted frames will be saved in `./your_folder_name/1080p`.
 
 ### Object detection
 
 Change directory to `./model` and edit `yolov5.sh`.
-Change input_path option to absolute path of `./your_folder_name/1080p`
-Change output_path to absolute path of `./your_folder_name/profile`
+Change input_path option to absolute path of `./your_folder_name/1080p`.
+Change output_path to absolute path of `./your_folder_name/profile`.
 Finally, run the script with `bash yolov5.sh` and profile csvs will be generated under `./your_folder_name/profile`.
 
 ### Profiling
@@ -107,16 +109,16 @@ Change the profile_paths option in `./configs/runtime_cfg.json`.
 Add the absolute path of `your_folder_name` into the list.
 Change the mode option into "profile".
 Change directory back to project root and edit `main.sh`.
-Change video option to the video folder name we created, in our example, it's `your_folder_name`
-Then change data_root option to absolute path of parent folder of `your_folder_name`
+Change video option to the video folder name we created, in our example, it's `your_folder_name`.
+Then change data_root option to absolute path of parent folder of `your_folder_name`.
 Run by `bash main.sh`.
 The profile will be generated under `./your_folder_name/profile` named `profile.csv`.
-Copy the accuracy list under each model in `profile.csv` and change the model's accuracy under `./config/adaptive_scheduler.json`
+Copy the accuracy list under each model in `profile.csv` and change the model's accuracy under `./config/adaptive_scheduler.json`.
 
 ## Run the pipeline
 
 Change the mode option in `./configs/runtime_cfg.json` into "pipeline".
-Run the pipeline with `bash main.sh`
+Run the pipeline with `bash main.sh`.
 The result will be generated under `./your_folder_name/results/`.
 
 ## Change settings
@@ -127,13 +129,13 @@ At present, there are two algorithms for deciding video configurations.
 One is baseline algorithm which sends frames at constant frame rate.
 The other is adaptive algorithm.
 
-To switch between them, change json key `scheduler` in `configs/runtime_cfg.json` between `baseline` and `adaptive` and rerun program
+To switch between them, change json key `scheduler` in `configs/runtime_cfg.json` between `baseline` and `adaptive` and rerun program.
 
 ### Configs
 
 #### Runtime_cfg
 
-This file is located under `./configs`
+This file is located under `./configs`.
 
 Our program have three modes.
 
@@ -144,7 +146,7 @@ The third is `profile`.
 To change modes, edit `runtime_cfg.json`'s key mode.
 The default mode is pipeline.
 Pipeline mode will try to minimize cost under target accuracy.
-Under pipeline mode, To set target accuracy, change the target_accuracy key.
+Under pipeline mode, to set target accuracy, change the target_accuracy key.
 
 The iteration mode will iterates the target_accuracy_list and runs the pipeline for each target accuracy.
 
