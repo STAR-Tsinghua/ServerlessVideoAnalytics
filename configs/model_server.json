@@ -1,0 +1,17 @@
+{
+    "yolov5n": {
+        "url": "your function URL"
+    },
+    "yolov5s": {
+        "url": "your function URL"
+    },
+    "yolov5m": {
+        "url": "your function URL"
+    },
+    "yolov5l": {
+        "url": "your function URL"
+    },
+    "yolov5x": {
+        "url": "your function URL"
+    }
+}

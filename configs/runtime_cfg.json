@@ -1,0 +1,63 @@
+{
+    "ground_truth_model": "yolov5x",
+    "yolo_models": [
+        {
+            "model_name": "yolov5x",
+            "weight_path": "./weights/yolov5x.pt"
+        },
+        {
+            "model_name": "yolov5n",
+            "weight_path": "./weights/yolov5n.pt"
+        },
+        {
+            "model_name": "yolov5s",
+            "weight_path": "./weights/yolov5s.pt"
+        },
+        {
+            "model_name": "yolov5m",
+            "weight_path": "./weights/yolov5m.pt"
+        },
+        {
+            "model_name": "yolov5l",
+            "weight_path": "./weights/yolov5l.pt"
+        }
+    ],
+    "mode": "pipeline",
+    "pipeline_cfg": {
+        "scheduler": "baseline",
+        "target_accuracy": 0.75,
+        "pipeline_mode": "notracking",
+        "model_list": ["yolov5l", "yolov5m", "yolov5n", "yolov5s", "yolov5x"],
+        "invoking_mode": "local"
+
+    },
+    "iteration_cfg":{
+        "scheduler": "adaptive",
+        "target_accuracy_list": [0.75],
+        "model_list": ["yolov5l", "yolov5m", "yolov5n", "yolov5s", "yolov5x"],
+        "iteration_time": 2,
+        "pipeline_mode": "notracking",
+        "invoking_mode": "local"
+
+    },
+    "profile_cfg": {
+        "scheduler": "adaptive",
+        "target_accuracy": 0.75,
+        "pipeline_mode": "notracking",
+        "model_list": ["yolov5l", "yolov5m", "yolov5n", "yolov5s", "yolov5x"],
+        "invoking_mode": "local",
+        "profile_paths": [
+            "/your/path/to/this/repository/videoanalysis/dataset/city_around",
+            "/your/path/to/this/repository/videoanalysis/dataset/sparse",
+            "/your/path/to/this/repository/videoanalysis/dataset/highway_dds"
+        ],
+        "frame_slot": 100,
+        "profile_model_frame_interval": {
+            "yolov5x": [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+            "yolov5l": [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+            "yolov5m": [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+            "yolov5s": [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+        }
+        
+    }
+}

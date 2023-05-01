@@ -1,0 +1,12 @@
+{
+    "model": "yolov5x",
+    "frame_interval": 3,
+    "frame_slot": 100,
+    "model_cost": {
+        "yolov5x": 9.322,
+        "yolov5l": 5.117,
+        "yolov5m": 2.540,
+        "yolov5s": 1.058,
+        "yolov5n": 0.558
+    }
+}

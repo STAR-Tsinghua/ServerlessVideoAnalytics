@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d @test.json 'function URL here'
