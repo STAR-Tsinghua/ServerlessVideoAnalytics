@@ -1,6 +1,6 @@
-# serverless on aws
+# Serverless on AWS
 
-This repository open-sources the code for paper "Edge-assisted Adaptive Configuration for Serverless-based Video Analytics" in ICDCD'23.
+This repository open-sources the code for paper "Edge-assisted Adaptive Configuration for Serverless-based Video Analytics" in ICDCS'23.
 
 This repository contains the codes for edge server and AWS Lambda.
 
@@ -11,9 +11,9 @@ The remaining parts of the code is for edge server.
 
 > demo picture and demo video are stored under test folder
 
-## setup
+## Setup
 
-## install dependencies
+## Install dependencies
 
 Install `conda` and `ffmpeg`.
 
@@ -23,7 +23,7 @@ Activate conda environment you just created by `conda activate <yourenvname>`.
 
 Install python dependencies with `requirements.txt`
 
-## set up interaction with AWS
+## Set up interaction with AWS
 
 The `requesthandler.py` is responsible for send pictures to AWS Lambda and get results back.
 
@@ -39,7 +39,7 @@ It will send `1.picture` in `./test` to AWS Lambda and get bounding box back.
 
 The first invocation have a non-ignorable cold-start overhead, just wait for a while.
 
-## set up profiling models
+## Set up profiling models
 
 Download the corresponding model weight of yolov5 models.
 
@@ -55,7 +55,7 @@ Put the weight file into `./model/weights` folder.
 
 [ultralytics/yolov5]: https://github.com/ultralytics/yolov5
 
-## set up data folder
+## Set up data folder
 
 Video should be processed to be inputted into our system.
 
@@ -82,26 +82,26 @@ demo
 |   | some result csv files
 ```
 
-### create folder
+### Create folder
 
 If you want to use other videos as input, you should make a similar folder structure.
 
 First, create a folder `your_folder_name` under this folder and move target `your_video.mp4` to the folder.
 Then, create `./your_folder_name` folder and `./your_folder_name/profile`, `./your_folder_name/1080p` and `./your_folder_name/result` folder.
 
-### extract frames
+### Extract frames
 
 edit input_video option in `extract_frame.sh` to the absolute path of `./your_folder_name/video.mp4` and output_image_path to `./your_folder_name/1080p`.
 Then, run the script with `bash extract_frame.sh`, extracted frames will be saved in `./your_folder_name/1080p`
 
-### object detection
+### Object detection
 
 Change directory to `./model` and edit `yolov5.sh`.
 Change input_path option to absolute path of `./your_folder_name/1080p`
 Change output_path to absolute path of `./your_folder_name/profile`
 Finally, run the script with `bash yolov5.sh` and profile csvs will be generated under `./your_folder_name/profile`.
 
-### profiling
+### Profiling
 
 change the profile_paths option in `./configs/runtime_cfg.json`.
 Add the absolute path of `your_folder_name` into the list.
@@ -113,15 +113,15 @@ Run by `bash main.sh`.
 The profile will be generated under `./your_folder_name/profile` named `profile.csv`.
 Copy the accuracy list under each model in `profile.csv` and change the model's accuracy under `./config/adaptive_scheduler.json`
 
-## run the pipeline
+## Run the pipeline
 
 Change the mode option in `./configs/runtime_cfg.json` into "pipeline".
 Run the pipeline with `bash main.sh`
 The result will be generated under `./your_folder_name/results/`.
 
-## change settings
+## Change settings
 
-### change algorithm
+### Change algorithm
 
 At present, there are two algorithms for deciding video configurations.
 One is baseline algorithm which sends frames at constant frame rate.
@@ -129,9 +129,9 @@ The other is adaptive algorithm.
 
 To switch between them, change json key `scheduler` in `configs/runtime_cfg.json` between `baseline` and `adaptive` and rerun program
 
-### configs
+### Configs
 
-#### runtime_cfg
+#### Runtime_cfg
 
 This file is located under `./configs`
 
@@ -168,11 +168,11 @@ We list the meaning of settings as bellow
 - iteration_time
   determine how many times pipeline will run under a target accuracy.
 
-#### baseline_scheduler
+#### Baseline_scheduler
 
 `./configs/baseline_scheduler.json` stores the settings of baseline scheduler.
 
-#### adaptive_scheduler
+#### Adaptive_scheduler
 
 `./configs/adaptive_scheduler.json` stores the settings of adaptive scheduler.
 
