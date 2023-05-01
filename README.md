@@ -4,7 +4,7 @@ This repository open-sources the code for paper "Edge-assisted Adaptive Configur
 
 This repository contains the codes for edge server and AWS Lambda.
 
-The AWS Lambda part is contains under folder `awsmodel`.
+The AWS Lambda part is under folder `awsmodel`.
 Detailed instruction on how to set up models on AWS is documented by README under `awsmodel`.
 
 The remaining parts of the code is for edge server.
