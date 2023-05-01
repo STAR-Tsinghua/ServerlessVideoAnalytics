@@ -1,4 +1,4 @@
-# Serverless on AWS
+# Serverless video analytics based on AWS
 
 This repository open-sources the code for paper "Edge-assisted Adaptive Configuration for Serverless-based Video Analytics" in ICDCS'23.
 
