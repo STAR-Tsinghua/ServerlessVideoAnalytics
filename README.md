@@ -50,9 +50,7 @@ So, you should donwload them all.
 Put the weight file into `./model/weights` folder.
 
 > The weight file can be found in [ultralytics/yolov5][] under pretrained checkpoints tag.
-
 > The names of weight files should be `{model}.pt` like `yolov5x.pt`.
-
 > If not, modify the settings `yolo_models` in `./config/runtime_cfg.json`.
 
 [ultralytics/yolov5]: https://github.com/ultralytics/yolov5
