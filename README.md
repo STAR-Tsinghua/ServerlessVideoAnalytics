@@ -25,7 +25,7 @@ Install python dependencies with `requirements.txt`
 
 ## Set up interaction with AWS
 
-The `requesthandler.py` is responsible for send pictures to AWS Lambda and get results back.
+The `requesthandler.py` is responsible for sending pictures to AWS Lambda and getting results back.
 
 You should set up AWS Lambda functions and get function URLs following README in awsmodel.
 
@@ -91,7 +91,7 @@ Then, create `./your_folder_name` folder and `./your_folder_name/profile`, `./yo
 
 ### Extract frames
 
-edit input_video option in `extract_frame.sh` to the absolute path of `./your_folder_name/video.mp4` and output_image_path to `./your_folder_name/1080p`.
+Edit input_video option in `extract_frame.sh` to the absolute path of `./your_folder_name/video.mp4` and output_image_path to `./your_folder_name/1080p`.
 Then, run the script with `bash extract_frame.sh`, extracted frames will be saved in `./your_folder_name/1080p`
 
 ### Object detection
@@ -103,7 +103,7 @@ Finally, run the script with `bash yolov5.sh` and profile csvs will be generated
 
 ### Profiling
 
-change the profile_paths option in `./configs/runtime_cfg.json`.
+Change the profile_paths option in `./configs/runtime_cfg.json`.
 Add the absolute path of `your_folder_name` into the list.
 Change the mode option into "profile".
 Change directory back to project root and edit `main.sh`.
