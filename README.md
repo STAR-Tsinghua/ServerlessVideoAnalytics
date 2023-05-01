@@ -7,7 +7,7 @@ This repository contains the codes for edge server and AWS Lambda.
 The AWS Lambda part is under folder `awsmodel`.
 Detailed instruction on how to set up models on AWS is documented by README under `awsmodel`.
 
-The remaining parts of the code is for edge server.
+The remaining part of the code is for edge server.
 
 > demo picture and demo video are stored under test folder
 
@@ -37,7 +37,7 @@ Use `python requesthandler.py`.
 
 It will send `1.picture` in `./test` to AWS Lambda and get bounding box back.
 
-The first invocation have a non-ignorable cold-start overhead, just wait for a while.
+The first invocation has a non-ignorable cold-start overhead, just wait for a while.
 
 ## Set up profiling models
 
